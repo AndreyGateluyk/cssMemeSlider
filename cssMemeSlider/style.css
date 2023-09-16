@@ -5,12 +5,19 @@
 body{
   background-color: rgb(238, 227, 214);
 }
+.container{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
 .slider{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
-  width: 640px;
+  max-width: 640px;
 }
 .slider-wrapper{
   display: flex;
@@ -22,10 +29,22 @@ body{
   width: 400%;
   transition: all 1s;
 }
+.slide{
+  width: 100%;
+}
+.slide img {
+  height: auto;
+}
+.slider-footer{
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
 .slider-text{
   width: 70%;
   display: flex;
   overflow: hidden;
+  margin-top: 1vh;
 }
 .slider-text-track{
   display: flex;
@@ -42,6 +61,7 @@ input[name="btn"] {
   display: flex;
   width: 30%;
   justify-content: end;
+  margin-top: 1vh;
 }
 .control{
   width: 25px;
@@ -57,36 +77,74 @@ input[name="btn"] {
   width: 15px;
   height: 15px;
   border-radius: 8px;
+  opacity: .7;
 }
 .control:hover .control-custom{
   background-color: #463131;
   transition: all .4s;
+  opacity: 1;
+  transform: scale(1.1);
 }
-.slide{
-  width: 25%;
-}
-#btn-1:checked ~ .animation {
+#btn-1:checked ~ .slider-wrapper  .animation {
   margin-left: 0;
 }
-#btn-2:checked ~ .animation {
+#btn-2:checked ~ .slider-wrapper  .animation {
   margin-left: -100%;
 }
-#btn-3:checked ~ .animation {
+#btn-3:checked ~ .slider-wrapper  .animation {
   margin-left: -200%;
 }
-#btn-4:checked ~ .animation {
+#btn-4:checked ~ .slider-wrapper  .animation {
   margin-left: -300%;
 }
+.animation-text{
+  transition: all 1s
+}
+#btn-1:checked ~ .slider-footer .slider-text  .animation-text {
+  margin-left: 0;
+}
+#btn-2:checked ~ .slider-footer .slider-text  .animation-text {
+  margin-left: -100%;
+}
+#btn-3:checked ~ .slider-footer .slider-text  .animation-text {
+  margin-left: -200%;
+}
+#btn-4:checked ~ .slider-footer .slider-text  .animation-text {
+  margin-left: -300%;
+}
+#btn-1:checked ~ .slider-footer .slider-control  #custom-btn-1 {
+  background-color: rgb(96, 76, 115);
+    opacity: 1;
+    transform: scale(1.1);
+}
+#btn-2:checked ~ .slider-footer .slider-control  #custom-btn-2 {
+  background-color: rgb(96, 76, 115);
+    opacity: 1;
+    transform: scale(1.1);
+}
+#btn-3:checked ~ .slider-footer .slider-control  #custom-btn-3 {
+  background-color: rgb(96, 76, 115);
+    opacity: 1;
+    transform: scale(1.1);
+}
+#btn-4:checked ~ .slider-footer .slider-control  #custom-btn-4 {
+  background-color: rgb(96, 76, 115);
+    opacity: 1;
+    transform: scale(1.1);
+}
+@media (max-width:650px){
+  .slider-footer{
+    flex-direction: column-reverse;
+  }
+  .slider-text{
+    width: 100%;
+  }
+  .slider-control{
+    width: 100%;
+    justify-content: center;
+  }
+  .slider-text-item{
+    width: calc(100vw + 40px);
+  }
 
-#btn-1:checked ~ .animation-text {
-  margin-left: 0;
-}
-#btn-2:checked ~ .animation-text {
-  margin-left: -100%;
-}
-#btn-3:checked ~ .animation-text {
-  margin-left: -200%;
-}
-#btn-4:checked ~ .animation -text{
-  margin-left: -300%;
 }
