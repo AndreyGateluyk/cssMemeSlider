@@ -54,8 +54,7 @@ body{
   width: 448px;
 }
 input[name="btn"] {
-  position: absolute;
-  visibility: hidden;
+  display: none;
 }
 .slider-control{
   display: flex;
